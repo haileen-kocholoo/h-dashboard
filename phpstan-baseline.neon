@@ -1,60 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$created_at\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$description\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$ip_address\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$new_values\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$old_values\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$subject_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$subject_type\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$type\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$updated_at\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Console/Commands/ArchiveOldRecords.php
-
-		-
 			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$user_agent\.$#'
 			identifier: property.notFound
 			count: 1
@@ -63,6 +9,60 @@ parameters:
 		-
 			message: '#^Access to an undefined property App\\Models\\ActivityLog\:\:\$user_id\.$#'
 			identifier: property.notFound
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$created_at\.$#'
+			identifier: property.protected
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$description\.$#'
+			identifier: property.protected
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$ip_address\.$#'
+			identifier: property.protected
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$new_values\.$#'
+			identifier: property.protected
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$old_values\.$#'
+			identifier: property.protected
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$subject_id\.$#'
+			identifier: property.protected
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$subject_type\.$#'
+			identifier: property.protected
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$type\.$#'
+			identifier: property.protected
+			count: 1
+			path: app/Console/Commands/ArchiveOldRecords.php
+
+		-
+			message: '#^Access to protected property App\\Models\\ActivityLog\:\:\$updated_at\.$#'
+			identifier: property.protected
 			count: 1
 			path: app/Console/Commands/ArchiveOldRecords.php
 
@@ -85,7 +85,7 @@ parameters:
 			path: app/Console/Commands/ArchiveOldRecords.php
 
 		-
-			message: '#^Parameter \#1 \$callback of method Illuminate\\Support\\Collection\<int,stdClass\>\:\:map\(\) expects callable\(stdClass, int\)\: array\{user_id\: mixed, type\: mixed, subject_type\: mixed, subject_id\: mixed, description\: mixed, old_values\: mixed, new_values\: mixed, ip_address\: mixed, user_agent\: mixed, original_created_at\: mixed, original_updated_at\: mixed, archived_at\: Carbon\\CarbonInterface\}, Closure\(App\\Models\\ActivityLog\)\: array\{user_id\: mixed, type\: mixed, subject_type\: mixed, subject_id\: mixed, description\: mixed, old_values\: mixed, new_values\: mixed, ip_address\: mixed, user_agent\: mixed, original_created_at\: mixed, original_updated_at\: mixed, archived_at\: Carbon\\CarbonInterface\} given\.$#'
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Support\\Collection\<int,stdClass\>\:\:map\(\) expects callable\(stdClass, int\)\: array\{user_id\: mixed, type\: string, subject_type\: string\|null, subject_id\: int\|null, description\: string\|null, old_values\: array\|null, new_values\: array\|null, ip_address\: string\|null, user_agent\: mixed, original_created_at\: string, original_updated_at\: string, archived_at\: Carbon\\CarbonInterface\}, Closure\(App\\Models\\ActivityLog\)\: array\{user_id\: mixed, type\: string, subject_type\: string\|null, subject_id\: int\|null, description\: string\|null, old_values\: array\|null, new_values\: array\|null, ip_address\: string\|null, user_agent\: mixed, original_created_at\: string, original_updated_at\: string, archived_at\: Carbon\\CarbonInterface\} given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Console/Commands/ArchiveOldRecords.php
@@ -1946,6 +1946,18 @@ parameters:
 
 		-
 			message: '#^Property App\\Models\\ActivityLog\:\:\$casts type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Models/ActivityLog.php
+
+		-
+			message: '#^Property App\\Models\\ActivityLog\:\:\$new_values type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Models/ActivityLog.php
+
+		-
+			message: '#^Property App\\Models\\ActivityLog\:\:\$old_values type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/Models/ActivityLog.php
@@ -5671,12 +5683,6 @@ parameters:
 			path: resources/views/livewire/tickets/⚡inbox.blade.php
 
 		-
-			message: '#^Property Livewire\\Component@anonymous/resources/views/livewire/tickets/⚡inbox\.blade\.php\:17\:\:\$showingTicket \(App\\Models\\Ticket|null\) does not accept stdClass\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: resources/views/livewire/tickets/⚡inbox.blade.php
-
-		-
 			message: '#^Call to an undefined static method App\\Models\\TaskActivity\:\:insert\(\)\.$#'
 			identifier: staticMethod.notFound
 			count: 2
@@ -5829,6 +5835,12 @@ parameters:
 		-
 			message: '#^Property Livewire\\Component@anonymous/resources/views/livewire/tickets/⚡inbox\.blade\.php\:17\:\:\$selectedTickets type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
+			count: 1
+			path: resources/views/livewire/tickets/⚡inbox.blade.php
+
+		-
+			message: '#^Property Livewire\\Component@anonymous/resources/views/livewire/tickets/⚡inbox\.blade\.php\:17\:\:\$showingTicket \(App\\Models\\Ticket\|null\) does not accept stdClass\.$#'
+			identifier: assign.propertyType
 			count: 1
 			path: resources/views/livewire/tickets/⚡inbox.blade.php
 
@@ -6115,6 +6127,18 @@ parameters:
 			path: resources/views/livewire/units/chart.blade.php
 
 		-
+			message: '#^Access to an undefined property App\\Models\\Unit\:\:\$childrenRecursive\.$#'
+			identifier: property.notFound
+			count: 2
+			path: resources/views/livewire/units/chart.blade.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Unit\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: resources/views/livewire/units/chart.blade.php
+
+		-
 			message: '#^Call to an undefined static method App\\Models\\Unit\:\:find\(\)\.$#'
 			identifier: staticMethod.notFound
 			count: 1
@@ -6135,6 +6159,12 @@ parameters:
 		-
 			message: '#^Call to an undefined static method App\\Models\\User\:\:whereHas\(\)\.$#'
 			identifier: staticMethod.notFound
+			count: 1
+			path: resources/views/livewire/units/chart.blade.php
+
+		-
+			message: '#^Method Livewire\\Component@anonymous/resources/views/livewire/units/chart\.blade\.php\:10\:\:expandFirstNLevels\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: resources/views/livewire/units/chart.blade.php
 
@@ -6160,24 +6190,6 @@ parameters:
 			message: '#^Property Livewire\\Component@anonymous/resources/views/livewire/units/chart\.blade\.php\:10\:\:\$rootUnits has no type specified\.$#'
 			identifier: missingType.property
 			count: 1
-			path: resources/views/livewire/units/chart.blade.php
-
-		-
-			message: '#^Method Livewire\\Component@anonymous/resources/views/livewire/units/chart\.blade\.php\:10\:\:expandFirstNLevels\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: resources/views/livewire/units/chart.blade.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\Unit\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: resources/views/livewire/units/chart.blade.php
-
-		-
-			message: '#^Access to an undefined property App\\Models\\Unit\:\:\$childrenRecursive\.$#'
-			identifier: property.notFound
-			count: 2
 			path: resources/views/livewire/units/chart.blade.php
 
 		-
