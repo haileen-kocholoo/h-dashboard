@@ -9,11 +9,23 @@ use Illuminate\Support\Facades\Auth;
 class HardwareAuditObserver
 {
     /**
+     * Check if audit logging should be suppressed.
+     *
+     * Supports both static flag (standard PHP-FPM) and request attributes
+     * (Laravel Octane / long-running workers).
+     */
+    protected function shouldSuppress(): bool
+    {
+        return Hardware::$suppressAudit
+            || request()->attributes->get('suppress_audit', false);
+    }
+
+    /**
      * Handle the Hardware "created" event.
      */
     public function created(Hardware $hardware): void
     {
-        if (Hardware::$suppressAudit) {
+        if ($this->shouldSuppress()) {
             return;
         }
 
@@ -44,7 +56,7 @@ class HardwareAuditObserver
      */
     public function updating(Hardware $hardware): void
     {
-        if (Hardware::$suppressAudit) {
+        if ($this->shouldSuppress()) {
             return;
         }
 
@@ -60,7 +72,7 @@ class HardwareAuditObserver
      */
     public function deleting(Hardware $hardware): void
     {
-        if (Hardware::$suppressAudit) {
+        if ($this->shouldSuppress()) {
             return;
         }
 
@@ -73,7 +85,7 @@ class HardwareAuditObserver
      */
     public function forceDeleted(Hardware $hardware): void
     {
-        if (Hardware::$suppressAudit) {
+        if ($this->shouldSuppress()) {
             return;
         }
 

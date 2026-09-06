@@ -50,9 +50,9 @@ class HardwareBulkAuditSuppressionTest extends TestCase
     {
         $src = file_get_contents(base_path('app/Http/Controllers/Api/HardwareController.php'));
 
-        expect($src)->toContain('Hardware::$suppressAudit = true;');
+        expect($src)->toContain("request()->attributes->set('suppress_audit', true);");
         expect($src)->toContain('} finally {');
-        expect(substr_count($src, 'Hardware::$suppressAudit = false;'))->toBe(2);
+        expect(substr_count($src, "request()->attributes->remove('suppress_audit');"))->toBe(2);
     }
 
     public function test_suppress_audit_is_false_after_bulk_mark(): void
@@ -110,5 +110,26 @@ class HardwareBulkAuditSuppressionTest extends TestCase
             'hardware_id' => $newHw->id,
             'action' => 'created',
         ]);
+    }
+
+    public function test_request_attribute_suppress_audit_prevents_audit_logging(): void
+    {
+        $data = $this->createUserWithHardware();
+        $this->actingAs($data['user']);
+
+        // Set request attribute
+        request()->attributes->set('suppress_audit', true);
+
+        // Create hardware (should not log audit)
+        $hardware = Hardware::create(['n_code' => $data['n_code'], 'pc_name' => 'PC-SUPPRESSED', 'type' => 'pc']);
+
+        // Verify no audit entry
+        $this->assertDatabaseMissing('hardware_audits', [
+            'hardware_id' => $hardware->id,
+            'action' => 'created',
+        ]);
+
+        // Cleanup
+        request()->attributes->remove('suppress_audit');
     }
 }

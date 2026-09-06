@@ -8,13 +8,13 @@ honor its STOP conditions, and update your row when done.
 
 | Plan | Title | Priority | Effort | Depends on | Status |
 |------|-------|----------|--------|------------|--------|
-| 001  | Add typed properties to ActivityLog model | P1 | S | — | TODO |
-| 002  | Remove deprecated histories() method | P2 | S | — | TODO |
-| 003  | Add GIN index on hardware_audits.changes | P1 | S | — | TODO |
-| 004  | Add rate limiting to hardware API | P2 | LOW | — | TODO |
-| 005  | Fix $suppressAudit race condition | P3 | M | — | TODO |
-| 006  | Add trigram indexes for search | P2 | M | — | TODO |
-| 007  | Fix CONCAT raw SQL in search | P3 | S | — | TODO |
+| 001  | Add typed properties to ActivityLog model | P1 | S | — | ✅ Done |
+| 002  | Remove deprecated histories() method | P2 | S | — | ✅ Done |
+| 003  | Add GIN index on hardware_audits.changes | P1 | S | — | ⏭️ Skip (already exists) |
+| 004  | Add rate limiting to hardware API | P2 | LOW | — | ⏭️ Skip (already exists) |
+| 005  | Fix $suppressAudit race condition | P3 | M | — | ✅ Done |
+| 006  | Add trigram indexes for search | P2 | M | — | ✅ Done |
+| 007  | Fix CONCAT raw SQL in search | P3 | S | — | ✅ Done |
 
 ## Dependency notes
 
