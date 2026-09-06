@@ -5,17 +5,17 @@ APP_DEBUG=false
 APP_URL=http://coder1.boxd.sh
 # ── Map / routing / geocoding servers ──
 # تایل/نقشه (OpenStreetMap)
-#TILE_SERVER_IP=tile.openstreetmap.org
-#TILE_SERVER_PORT=
-#TILE_SERVER_SCHEME=https
+TILE_SERVER_IP=tile.openstreetmap.org
+TILE_SERVER_PORT=
+TILE_SERVER_SCHEME=https
 # قالب کامل آدرس تایل (OSM)
-#TILE_URL_TEMPLATE=https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+TILE_URL_TEMPLATE=https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 # مسیریابی (OSRM)
-ROUTING_SERVER_IP=10.100.252.137
+ROUTING_SERVER_IP=127.0.0.1
 ROUTING_SERVER_PORT=5000
 ROUTING_SERVER_SCHEME=http
 # آدرس‌یابی (Nominatim)
-GEOCODING_SERVER_IP=10.100.252.137
+GEOCODING_SERVER_IP=127.0.0.1
 GEOCODING_SERVER_PORT=8088
 GEOCODING_SERVER_SCHEME=http
 
