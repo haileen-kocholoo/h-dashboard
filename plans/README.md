@@ -8,13 +8,19 @@ honor its STOP conditions, and update your row when done.
 
 | Plan | Title | Priority | Effort | Depends on | Status |
 |------|-------|----------|--------|------------|--------|
-| 001  | Add typed properties to ActivityLog model | P1 | S | — | ✅ Done |
-| 002  | Remove deprecated histories() method | P2 | S | — | ✅ Done |
-| 003  | Add GIN index on hardware_audits.changes | P1 | S | — | ⏭️ Skip (already exists) |
-| 004  | Add rate limiting to hardware API | P2 | LOW | — | ⏭️ Skip (already exists) |
-| 005  | Fix $suppressAudit race condition | P3 | M | — | ✅ Done |
-| 006  | Add trigram indexes for search | P2 | M | — | ✅ Done |
-| 007  | Fix CONCAT raw SQL in search | P3 | S | — | ✅ Done |
+| 001  | Add typed properties to ActivityLog model | P1 | S | — | DONE |
+| 002  | Remove deprecated histories() method | P2 | S | — | DONE |
+| 003  | Add GIN index on hardware_audits.changes | P1 | S | — | DONE |
+| 004  | Add rate limiting to hardware API | P2 | LOW | — | TODO |
+| 005  | Fix $suppressAudit race condition | P3 | M | — | DONE |
+| 006  | Add trigram indexes for search | P2 | M | — | DONE |
+| 007  | Fix CONCAT raw SQL in search | P3 | S | — | DONE |
+| 008  | Enforce SESSION_SECURE_COOKIE in production | P1 | S | — | TODO |
+| 009  | Add password complexity requirements | P2 | S | — | TODO |
+| 010  | Add security headers middleware | P3 | S | — | TODO |
+| 011  | Implement per-user rate limiting for API | P2 | S | — | TODO |
+| 012  | Add CSRF protection to API login | P2 | LOW | — | TODO |
+| 013  | Remove hardcoded dummy hash from login | P3 | S | — | TODO |
 
 ## Dependency notes
 
@@ -25,3 +31,7 @@ honor its STOP conditions, and update your row when done.
 - **Zabbix-related improvements**: excluded per user request.
 - **SafeRoleOrPermission middleware on hardware routes**: by design per AGENTS.md.
 - **PostGIS raw SQL queries**: required for spatial functions, not a finding.
+- **CORS patterns (#1)**: excluded per user request.
+- **Session lifetime 120 minutes (#6)**: excluded per user request.
+- **API token expiration 7 days (#8)**: excluded per user request.
+- **IP allowlisting for hardware API (#10)**: excluded per user request.
