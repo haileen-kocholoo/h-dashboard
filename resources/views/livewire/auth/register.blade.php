@@ -15,7 +15,7 @@ return new class extends Component
     #[Rule('required|string|size:10')]
     public string $n_code = '';
 
-    #[Rule('required|confirmed')]
+    #[Rule('required|string|min:8|max:255|confirmed')]
     public string $password = '';
 
     #[Rule('required')]
@@ -34,7 +34,7 @@ return new class extends Component
         // اعتبارسنجی اولیه
         $this->validate([
             'n_code' => 'required|string|size:10',
-            'password' => 'required|confirmed',
+            'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed', \Illuminate\Validation\Rules\Password::min(8)->mixedCase()->numbers()],
         ]);
 
         // بررسی اینکه کد ملی در `persons` وجود دارد یا نه

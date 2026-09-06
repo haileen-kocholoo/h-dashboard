@@ -15,12 +15,12 @@ honor its STOP conditions, and update your row when done.
 | 005  | Fix $suppressAudit race condition | P3 | M | — | DONE |
 | 006  | Add trigram indexes for search | P2 | M | — | DONE |
 | 007  | Fix CONCAT raw SQL in search | P3 | S | — | DONE |
-| 008  | Enforce SESSION_SECURE_COOKIE in production | P1 | S | — | TODO |
-| 009  | Add password complexity requirements | P2 | S | — | TODO |
-| 010  | Add security headers middleware | P3 | S | — | TODO |
-| 011  | Implement per-user rate limiting for API | P2 | S | — | TODO |
-| 012  | Add CSRF protection to API login | P2 | LOW | — | TODO |
-| 013  | Remove hardcoded dummy hash from login | P3 | S | — | TODO |
+| 008  | Enforce SESSION_SECURE_COOKIE in production | P1 | S | — | DONE |
+| 009  | Add password complexity requirements | P2 | S | — | DONE |
+| 010  | Add security headers middleware | P3 | S | — | DONE |
+| 011  | Implement per-user rate limiting for API | P2 | S | — | DONE |
+| 012  | Add CSRF protection to API login | P2 | LOW | — | SKIP (Flutter breaks) |
+| 013  | Remove hardcoded dummy hash from login | P3 | S | — | DONE |
 
 ## Dependency notes
 

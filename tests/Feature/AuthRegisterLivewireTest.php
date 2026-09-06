@@ -43,7 +43,7 @@ class AuthRegisterLivewireTest extends TestCase
             'n_code' => $nCode, 'f_name' => 'تست', 'l_name' => 'کاربر',
             't_id' => 1, 'e_id' => 1, 's_id' => 1, 'r_id' => 1, 'u_id' => $unit->id,
         ]);
-        $user = User::create(['n_code' => $nCode, 'password' => Hash::make('password')]);
+        $user = User::create(['n_code' => $nCode, 'password' => Hash::make('Password1')]);
         $user->units()->attach($unit->id, ['role' => 'staff', 'is_primary' => true]);
 
         return $user;
@@ -110,8 +110,8 @@ class AuthRegisterLivewireTest extends TestCase
     {
         Livewire::test('auth.register')
             ->set('n_code', '123')
-            ->set('password', 'password')
-            ->set('password_confirmation', 'password')
+            ->set('password', 'Password1')
+            ->set('password_confirmation', 'Password1')
             ->call('register')
             ->assertHasErrors(['n_code']);
     }
@@ -120,8 +120,8 @@ class AuthRegisterLivewireTest extends TestCase
     {
         Livewire::test('auth.register')
             ->set('n_code', '1234567890')
-            ->set('password', 'password1')
-            ->set('password_confirmation', 'password2')
+            ->set('password', 'Password1')
+            ->set('password_confirmation', 'Password2')
             ->call('register')
             ->assertHasErrors(['password']);
     }
@@ -132,8 +132,8 @@ class AuthRegisterLivewireTest extends TestCase
     {
         Livewire::test('auth.register')
             ->set('n_code', '9999999999')
-            ->set('password', 'password')
-            ->set('password_confirmation', 'password')
+            ->set('password', 'Password1')
+            ->set('password_confirmation', 'Password1')
             ->call('register')
             ->assertHasErrors(['n_code'])
             ->assertSee('کد ملی در سیستم ثبت نشده است');
@@ -147,12 +147,12 @@ class AuthRegisterLivewireTest extends TestCase
         $this->createPerson($nCode);
 
         // Create user manually (can't go through register() due to session issue)
-        User::create(['n_code' => $nCode, 'password' => Hash::make('password')]);
+        User::create(['n_code' => $nCode, 'password' => Hash::make('Password1')]);
 
         Livewire::test('auth.register')
             ->set('n_code', $nCode)
-            ->set('password', 'password')
-            ->set('password_confirmation', 'password')
+            ->set('password', 'Password1')
+            ->set('password_confirmation', 'Password1')
             ->call('register')
             ->assertHasErrors(['n_code'])
             ->assertSee('این کد ملی قبلاً ثبت شده است');
