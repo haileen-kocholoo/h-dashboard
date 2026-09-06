@@ -19,7 +19,7 @@ honor its STOP conditions, and update your row when done.
 | 009  | Add password complexity requirements | P2 | S | — | DONE |
 | 010  | Add security headers middleware | P3 | S | — | DONE |
 | 011  | Implement per-user rate limiting for API | P2 | S | — | DONE |
-| 012  | Add CSRF protection to API login | P2 | LOW | — | DONE |
+| 012  | Add CSRF protection to API login | P2 | LOW | — | SKIP (Flutter breaks) |
 | 013  | Remove hardcoded dummy hash from login | P3 | S | — | DONE |
 
 ## Dependency notes
