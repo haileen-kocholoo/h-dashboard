@@ -293,13 +293,13 @@ class HardwareController extends Controller
         $accessibleHardwareIds = $hardwares->pluck('id')->toArray();
 
         // Suppress individual audit entries during bulk operations
-        Hardware::$suppressAudit = true;
+        request()->attributes->set('suppress_audit', true);
         try {
             // Single update query on the verified IDs
             $count = Hardware::whereIn('id', $accessibleHardwareIds)
                 ->update(['mark' => $validated['mark']]);
         } finally {
-            Hardware::$suppressAudit = false;
+            request()->attributes->remove('suppress_audit');
         }
 
         // Batch insert audit entries
@@ -339,11 +339,11 @@ class HardwareController extends Controller
         $accessibleHardwareIds = $hardwares->pluck('id')->toArray();
 
         // Suppress individual audit entries during bulk operations
-        Hardware::$suppressAudit = true;
+        request()->attributes->set('suppress_audit', true);
         try {
             $count = Hardware::whereIn('id', $accessibleHardwareIds)->delete();
         } finally {
-            Hardware::$suppressAudit = false;
+            request()->attributes->remove('suppress_audit');
         }
 
         event(new HardwareUpdated($hardwares->first(), 'bulk_deleted'));
