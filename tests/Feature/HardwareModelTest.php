@@ -79,11 +79,11 @@ class HardwareModelTest extends TestCase
         $this->assertDatabaseCount('hardware_audits', $count + 1);
     }
 
-    public function test_hardware_histories_delegates_to_audits(): void
+    public function test_hardware_audits_relation_works(): void
     {
         $hardware = $this->createHardware();
 
-        $this->assertGreaterThanOrEqual(1, $hardware->histories->count());
+        $this->assertGreaterThanOrEqual(1, $hardware->audits->count());
     }
 
     // --- Persian normalization on save ---

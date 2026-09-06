@@ -100,14 +100,6 @@ class Hardware extends Model
         return $this->hasMany(HardwareAudit::class);
     }
 
-    /**
-     * @deprecated Use audits() instead (Issue #246 merge).
-     */
-    public function histories(): HasMany
-    {
-        return $this->hasMany(HardwareAudit::class, 'hardware_id');
-    }
-
     // ── Query Scopes ──────────────────────────────────────────────────────
 
     /**
