@@ -46,7 +46,7 @@ Route::post('/login', function (Request $request) {
 })->middleware('throttle:5,1');
 
 // Authenticated routes — global rate limit: 60 req/min
-Route::middleware(['auth:sanctum', 'throttle:60,1'])->group(function () {
+Route::middleware(['auth:sanctum', 'throttle:api-user'])->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
