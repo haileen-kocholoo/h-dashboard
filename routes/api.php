@@ -18,6 +18,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 // Login route — stricter rate limit
 Route::post('/login', function (Request $request) {
@@ -31,7 +32,7 @@ Route::post('/login', function (Request $request) {
     // Constant-time comparison with dummy hash for non-existent users
     static $dummyHash = null;
     if ($dummyHash === null) {
-        $dummyHash = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // 'password'
+        $dummyHash = Hash::make(Str::random(32));
     }
     $userHash = $user ? $user->password : $dummyHash;
     $passwordMatches = Hash::check($credentials['password'], $userHash);
