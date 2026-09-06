@@ -2,7 +2,7 @@ APP_NAME=h-dashboard
 APP_ENV=local
 APP_KEY=base64:aelQP/iruUmruqDr1iZ9XEFB/EgFm3crvwHN1lqnix8=
 APP_DEBUG=false
-APP_URL=http://coder1.boxd.sh
+APP_URL=http://127.0.0.1:8000
 # ── Map / routing / geocoding servers ──
 # تایل/نقشه (OpenStreetMap)
 TILE_SERVER_IP=tile.openstreetmap.org
