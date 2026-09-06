@@ -121,8 +121,7 @@ class Hardware extends Model
                 ->orWhere('hardwares.mac', 'LIKE', "%{$s}%")
                 ->orWhere('hardwares.comments', 'LIKE', "%{$s}%")
                 ->orWhere('persons.f_name', 'LIKE', "%{$s}%")
-                ->orWhere('persons.l_name', 'LIKE', "%{$s}%")
-                ->orWhereRaw("CONCAT(persons.f_name, ' ', persons.l_name) LIKE ?", ["%{$s}%"]);
+                ->orWhere('persons.l_name', 'LIKE', "%{$s}%");
         });
     }
 

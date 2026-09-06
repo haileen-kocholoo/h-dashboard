@@ -13,7 +13,7 @@ honor its STOP conditions, and update your row when done.
 | 003  | Add GIN index on hardware_audits.changes | P1 | S | — | ⏭️ Skip (already exists) |
 | 004  | Add rate limiting to hardware API | P2 | LOW | — | ⏭️ Skip (already exists) |
 | 005  | Fix $suppressAudit race condition | P3 | M | — | ✅ Done |
-| 006  | Add trigram indexes for search | P2 | M | — | TODO |
+| 006  | Add trigram indexes for search | P2 | M | — | ✅ Done |
 | 007  | Fix CONCAT raw SQL in search | P3 | S | — | TODO |
 
 ## Dependency notes
