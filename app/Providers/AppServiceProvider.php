@@ -9,7 +9,9 @@ use App\Models\Unit;
 use App\Observers\HardwareAuditObserver;
 use App\Services\CacheInvalidationService;
 use App\Services\CacheInvalidationServiceInterface;
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // Per-user API rate limiter (replaces IP-based throttle)
+        RateLimiter::for('api-user', function ($request) {
+            return Limit::perMinute(60)->by(
+                $request->user()->id ?? $request->ip()
+            );
+        });
+
         // Register anonymous help components with colon syntax for Blade
         Blade::component('components.help.button', 'help:button');
         Blade::component('components.help.modal', 'help:modal');

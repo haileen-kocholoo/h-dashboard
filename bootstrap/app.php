@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\LastUserActivity;
 use App\Http\Middleware\SafeRoleOrPermission;
+use App\Http\Middleware\SecurityHeaders;
 use App\Http\Middleware\ValidateUnitContext;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Application;
@@ -32,6 +33,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'last.activity' => LastUserActivity::class,
         ]);
         $middleware->web(append: [
+            SecurityHeaders::class,
             LastUserActivity::class,
         ]);
 
