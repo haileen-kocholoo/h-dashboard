@@ -43,7 +43,7 @@ Route::post('/login', function (Request $request) {
     $token = $user->createToken('flutter-app')->plainTextToken;
 
     return response()->json(['token' => $token]);
-})->middleware('throttle:5,1');
+})->middleware(['throttle:5,1', 'verify_csrf_token']);
 
 // Authenticated routes — global rate limit: 60 req/min
 Route::middleware(['auth:sanctum', 'throttle:api-user'])->group(function () {
